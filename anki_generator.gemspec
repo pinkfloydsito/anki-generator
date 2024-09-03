@@ -13,7 +13,7 @@ Gem::Specification.new do |spec|
   spec.executables   = ['anki_generator']
   spec.require_paths = ['lib']
 
-  spec.add_dependency 'anki2'
-  spec.add_dependency 'minitest'
-  spec.add_dependency 'thor'
+  spec.add_dependency 'anki2', '~> 0.1.2'
+  spec.add_dependency 'minitest', '~> 5.25.1'
+  spec.add_dependency 'thor', '~> 1.2'
 end

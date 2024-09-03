@@ -1,4 +1,5 @@
 RUBY = bundle exec ruby
+RAKE = bundle exec rake
 BUNDLE = bundle
 TEST_FILES = test_*.rb
 
@@ -6,10 +7,10 @@ install:
 	$(BUNDLE) install
 
 test:
-	$(RUBY) -Itest $(TEST_FILES)
+	$(RAKE)
 
 build:
-	$(RUBY) build.rb
+	$(RUBY) build.rbgenerate_apkg
 
 clean:
 	rm -f *.apkg
