@@ -26,14 +26,14 @@ class AnkiGeneratorTest < Minitest::Test
   end
 
   def test_fill_cards
-    anki_generator = AnkiGenerator.new(deck_file: @temp_yaml_file)
+    anki_generator = AnkiGenerator.new(name: 'test', deck_file: @temp_yaml_file)
     assert_equal 2, anki_generator.cards.length
     assert_equal 'What is Big O notation?', anki_generator.cards.first['front']
   end
 
   def test_generate_apkg
-    anki_generator = AnkiGenerator.new(deck_file: @temp_yaml_file)
-    anki_generator.generate_apkg('Test', output_path: @temp_apkg_file)
+    anki_generator = AnkiGenerator.new(name: 'test', deck_file: @temp_yaml_file)
+    anki_generator.generate_apkg(output_path: @temp_apkg_file)
 
     assert File.exist?(@temp_apkg_file), 'The .apkg file should be created'
   end

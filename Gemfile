@@ -5,3 +5,4 @@ gem 'rake'
 gem 'anki2'
 gem 'minitest'
 gem 'rubocop', require: false
+gem 'thor'
