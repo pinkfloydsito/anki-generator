@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'yaml'
-require 'anki'
+require 'anki2'
 
 # AnkiGenerator -> Class
 class AnkiGenerator
@@ -18,16 +18,13 @@ class AnkiGenerator
     self.cards = YAML.load_file(deck_file)
   end
 
-  def generate_apkg(output_file:)
-    deck = Anki::Deck.new('Generated Anki Deck')
+  def generate_apkg(name, output_path:)
+    deck = Anki2.new({ name: name, output_path: output_path })
 
     cards.each do |card|
-      deck.add_note(
-        card['front'],
-        card['back']
-      )
+      deck.add_card(card['front'], card['back'])
     end
 
-    deck.save(output_file)
+    deck.save
   end
 end
